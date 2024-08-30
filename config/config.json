@@ -1,24 +1,26 @@
 {
   "development": {
-    "username": "ruditopra",
-    "password": "1234",
-    "database": "my_movies",
-    "host": "127.0.0.1",
+    "username": "neondb_owner",
+    "password": "SuDO2hWq8tGs",
+    "database": "neondb",
+    "host": "ep-nameless-band-a54nvjeg.us-east-2.aws.neon.tech",
     "dialect": "postgres",
     "port" : 5432
   },
   "test": {
-    "username": "root",
-    "password": null,
-    "database": "database_test",
-    "host": "127.0.0.1",
-    "dialect": "mysql"
+    "username": "neondb_owner",
+    "password": "SuDO2hWq8tGs",
+    "database": "neondb",
+    "host": "ep-nameless-band-a54nvjeg.us-east-2.aws.neon.tech",
+    "dialect": "postgres",
+    "port" : 5432
   },
   "production": {
-    "username": "root",
-    "password": null,
-    "database": "database_production",
-    "host": "127.0.0.1",
-    "dialect": "mysql"
+    "username": "neondb_owner",
+    "password": "SuDO2hWq8tGs",
+    "database": "neondb",
+    "host": "ep-nameless-band-a54nvjeg.us-east-2.aws.neon.tech",
+    "dialect": "postgres",
+    "port" : 5432
   }
 }
