@@ -4,7 +4,6 @@ const { Op} = require("sequelize");
 const { sign } = require("jsonwebtoken");
 const Unauthenticationerror = require("../errors/UnauthenticationError");
 
-
 exports.register = async(req, res, next) => {
     const { name, username, email, password, role, address, phoneNumber } = req.body;
 

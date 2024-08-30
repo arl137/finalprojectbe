@@ -5,7 +5,13 @@
     "database": "neondb",
     "host": "ep-nameless-band-a54nvjeg.us-east-2.aws.neon.tech",
     "dialect": "postgres",
-    "port" : 5432
+    "port": 5432,
+    "dialectOptions": {
+      "ssl": {
+        "require": true,
+        "rejectUnauthorized": false
+      }
+    }
   },
   "test": {
     "username": "neondb_owner",
@@ -13,7 +19,13 @@
     "database": "neondb",
     "host": "ep-nameless-band-a54nvjeg.us-east-2.aws.neon.tech",
     "dialect": "postgres",
-    "port" : 5432
+    "port": 5432,
+    "dialectOptions": {
+      "ssl": {
+        "require": true,
+        "rejectUnauthorized": false
+      }
+    }
   },
   "production": {
     "username": "neondb_owner",
@@ -21,6 +33,12 @@
     "database": "neondb",
     "host": "ep-nameless-band-a54nvjeg.us-east-2.aws.neon.tech",
     "dialect": "postgres",
-    "port" : 5432
+    "port": 5432,
+    "dialectOptions": {
+      "ssl": {
+        "require": true,
+        "rejectUnauthorized": false
+      }
+    }
   }
 }
