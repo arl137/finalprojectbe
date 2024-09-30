@@ -20,19 +20,18 @@ jobs:
 
       - name: Install dependencies
         run: npm install
-        
-      # Comment out the test section below to skip tests
-      # - name: Run tests
-      #   run: npm test
-      - name: Test connection to Replit
-          run: |
-            curl -v telnet://finalprojectbe.replit.app:22
 
+      # Add a test to ping the Replit server
+      - name: Test connection to Replit
+        run: |
+          ping -c 4 finalprojectbe.replit.app
+
+      # Run the SSH command with more verbose output
       - name: Deploy to Replit
         run: |
           echo "$REPLIT_SSH_KEY" | tr -d '\r' > ~/id_rsa
           chmod 600 ~/id_rsa
-          ssh -vvv -i ~/id_rsa -p 22 -o StrictHostKeyChecking=no repl@finalprojectbe.replit.app "cd /home/runner/finalprojectbe && git pull && npm install && pm2 restart all"
+          ssh -vvv -o LogLevel=DEBUG3 -i ~/id_rsa -p 22 -o StrictHostKeyChecking=no repl@finalprojectbe.replit.app "cd /home/runner/finalprojectbe && git pull && npm install && pm2 restart all"
 
         env:
           REPLIT_SSH_KEY: ${{ secrets.REPLIT_SSH_KEY }}
