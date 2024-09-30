@@ -4,6 +4,9 @@ on:
   push:
     branches:
       - main
+  pull_request:
+    branches:
+      - main
 
 jobs:
   deploy:
@@ -21,14 +24,12 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      # Install Railway CLI
-      - name: Install Railway
-        run: |
-          curl -fsSL https://railway.app/install.sh | sh
-          export PATH="$PATH:/home/runner/.railway/bin"
+      # Comment out the test section below to skip tests
+      # - name: Run tests
+      #   run: npm test
+
+      - name: Install Railway CLI
+        run: npm install -g railway
 
       - name: Deploy to Railway
-        run: |
-          railway up --service finalprojectbe --token ${{ secrets.RAILWAY_TOKEN }}
-        env:
-          RAILWAY_TOKEN: ${{ secrets.RAILWAY_TOKEN }}
+        run: railway up --service finalprojectbe --ci --token ${{ secrets.RAILWAY_TOKEN }}
