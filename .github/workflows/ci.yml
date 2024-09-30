@@ -22,9 +22,9 @@ jobs:
         run: npm install
 
       # Add a test to ping the Replit server
-      - name: Test connection to Replit
-        run: |
-          ping -c 4 finalprojectbe.replit.app
+      # - name: Test connection to Replit
+      #   run: |
+      #     ping -c 4 finalprojectbe.replit.app
 
       # Run the SSH command with more verbose output
       - name: Deploy to Replit
