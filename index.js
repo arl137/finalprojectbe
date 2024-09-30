@@ -15,6 +15,10 @@ app.use((err, req, res, next) => {
   handleError(err, res); // Use the custom error handler
 });
 
-app.listen(port, () => {
-  console.log(`Server is running on port ${port}`);
-});
+module.exports = app;
+
+if (require.main === module) {
+  app.listen(port, () => {
+    console.log(`Server is running on port ${port}`);
+  });
+}
