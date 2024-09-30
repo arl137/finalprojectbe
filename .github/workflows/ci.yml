@@ -4,6 +4,9 @@ on:
   push:
     branches:
       - main
+  pull_request:
+    branches:
+      - main
 
 jobs:
   deploy:
@@ -21,16 +24,12 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Test SSH connection with telnet
-        run: |
-          telnet finalprojectbe.replit.app 22
+      # Optional: Run tests
+      # - name: Run tests
+      #   run: npm test
 
-      # Run the SSH command with more verbose output
-      - name: Deploy to Replit
+      - name: Deploy to Railway
         run: |
-          echo "$REPLIT_SSH_KEY" | tr -d '\r' > ~/id_rsa
-          chmod 600 ~/id_rsa
-          ssh -vvv -o LogLevel=DEBUG3 -i ~/id_rsa -p 22 -o StrictHostKeyChecking=no repl@finalprojectbe.replit.app "cd /home/runner/finalprojectbe && git pull && npm install && pm2 restart all"
-
+          railway up --service finalprojectbe
         env:
-          REPLIT_SSH_KEY: ${{ secrets.REPLIT_SSH_KEY }}
+          RAILWAY_TOKEN: ${{ secrets.RAILWAY_TOKEN }}
