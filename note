@@ -5,3 +5,5 @@ npx sequelize-cli model:generate --name Movies --attributes title:string,synopsi
 npx sequelize-cli model:generate --name Bookmarks --attributes movieId:integer,userId:integer
 
 npx sequelize-cli migration:generate --name add-constraint-to-Bookmarks
+
+test
