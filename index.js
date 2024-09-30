@@ -1,26 +1,20 @@
-require('dotenv').config();
-const express = require('express');
+require("dotenv").config();
+const express = require("express");
 const app = express();
 const port = 3000;
-// const db = require('./models');
+const { handleError } = require("./helpers/errorHandler"); // Import custom error handler
 
 app.use(express.json());
 
+// Your routes
 app.use("/", require("./routes"));
 
-
+// Global error handler
 app.use((err, req, res, next) => {
   console.log(err);
-  const error = err.name || "Server Error";
-  const message = err.message || "Something went wrong";
-  const status = err.statusCode || 500;
-
-  res.status(status).json({ error, message });
-})
+  handleError(err, res); // Use the custom error handler
+});
 
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
-//   db.sequelize.sync({ force: false }).then(() => {
-//     console.log('Database synced successfully');
-//   });
 });
