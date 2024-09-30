@@ -4,9 +4,6 @@ on:
   push:
     branches:
       - main
-  pull_request:
-    branches:
-      - main
 
 jobs:
   deploy:
@@ -32,7 +29,7 @@ jobs:
         run: |
           echo "$REPLIT_SSH_KEY" > ~/id_rsa
           chmod 600 ~/id_rsa
-          ssh -i ~/id_rsa -p 22 -o StrictHostKeyChecking=no cf99f527-4ae1-4de4-b891-869b1e32beed@cf99f527-4ae1-4de4-b891-869b1e32beed-00-avin4vsqd2fx.pike.replit.dev "cd /home/runner/finalprojectbe && git pull && npm install && pm2 restart all"
+          ssh -i ~/id_rsa -p 22 -o StrictHostKeyChecking=no repl@finalprojectbe.replit.app "cd /home/runner/finalprojectbe && git pull && npm install && pm2 restart all"
 
         env:
           REPLIT_SSH_KEY: ${{ secrets.REPLIT_SSH_KEY }}
