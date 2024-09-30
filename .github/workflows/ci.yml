@@ -1,0 +1,46 @@
+name: CI/CD
+
+on:
+  push:
+    branches:
+      - main  # or your main development branch
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '16'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run tests
+        run: npm test
+
+  deploy:
+    needs: test
+    runs-on: ubuntu-latest
+    if: success()  # Only deploy if tests pass
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Deploy to Replit
+        run: |
+          echo "$REPLIT_SSH_KEY" > ~/id_rsa
+          chmod 600 ~/id_rsa
+          ssh -i ~/id_rsa -o StrictHostKeyChecking=no repl@your-replit-vm-ip "cd /path/to/your/project && git pull && npm install && pm2 restart all"  # Adjust your deployment script
+
+        env:
+          REPLIT_SSH_KEY: ${{ secrets.REPLIT_SSH_KEY }}
