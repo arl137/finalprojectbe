@@ -29,7 +29,7 @@ jobs:
         run: |
           echo "$REPLIT_SSH_KEY" > ~/id_rsa
           chmod 600 ~/id_rsa
-          ssh -i ~/id_rsa -p 22 -o StrictHostKeyChecking=no repl@finalprojectbe.replit.app "cd /home/runner/finalprojectbe && git pull && npm install && pm2 restart all"
+          ssh -vvv -i ~/id_rsa -p 22 -o StrictHostKeyChecking=no repl@finalprojectbe.replit.app "cd /home/runner/finalprojectbe && git pull && npm install && pm2 restart all"
 
         env:
           REPLIT_SSH_KEY: ${{ secrets.REPLIT_SSH_KEY }}
