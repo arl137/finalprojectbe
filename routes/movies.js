@@ -1,4 +1,4 @@
-const { index, show } = require('../controller/movies.controller');
+const { index, show } = require('../controllers/movies.controller');
 
 const router = require('express').Router();
 
