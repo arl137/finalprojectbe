@@ -16,20 +16,13 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Set up Node.js
+      - name: Install Node.js
         uses: actions/setup-node@v2
         with:
           node-version: '16'
 
-      - name: Install dependencies
-        run: npm install
-
-      # Comment out the test section below to skip tests
-      # - name: Run tests
-      #   run: npm test
-
       - name: Install Railway CLI
-        run: npm install -g railway
+        run: npm install -g @railway/cli
 
       - name: Deploy to Railway
         run: railway up --service finalprojectbe --ci --token ${{ secrets.RAILWAY_TOKEN }}
