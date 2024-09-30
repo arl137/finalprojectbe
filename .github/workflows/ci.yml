@@ -4,9 +4,6 @@ on:
   push:
     branches:
       - main
-  pull_request:
-    branches:
-      - main
 
 jobs:
   deploy:
@@ -24,9 +21,11 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      # Optional: Run tests
-      # - name: Run tests
-      #   run: npm test
+      # Install Railway CLI
+      - name: Install Railway
+        run: |
+          curl -fsSL https://railway.app/install.sh | sh
+          export PATH="$PATH:/home/runner/.railway/bin"
 
       - name: Deploy to Railway
         run: |
