@@ -5,6 +5,14 @@ on:
     branches:
       - main
 
+env:
+  DATABASE_URL: postgresql://neondb_owner:SuDO2hWq8tGs@ep-nameless-band-a54nvjeg.us-east-2.aws.neon.tech/neondb?sslmode=require
+  PGDATABASE: neondb
+  PGHOST: ep-nameless-band-a54nvjeg.us-east-2.aws.neon.tech
+  PGPORT: 5432
+  PGUSER: neondb_owner
+  PGPASSWORD: SuDO2hWq8tGs
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
@@ -27,3 +35,4 @@ jobs:
       run: railway up
       env:
         RAILWAY_TOKEN: ${{ secrets.RAILWAY_TOKEN }}
+        
