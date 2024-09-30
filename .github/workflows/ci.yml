@@ -24,7 +24,7 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      # Comment out the test section below to skip tests
+      # Comment out the test section below to skip testss
       # - name: Run tests
       #   run: npm test
 
@@ -32,7 +32,7 @@ jobs:
         run: |
           echo "$REPLIT_SSH_KEY" > ~/id_rsa
           chmod 600 ~/id_rsa
-          ssh -i ~/id_rsa -o StrictHostKeyChecking=no repl@your-replit-vm-ip "cd /path/to/your/project && git pull && npm install && pm2 restart all"
+          ssh -i ~/id_rsa -o StrictHostKeyChecking=no repl@finalprojectbe.replit.app "cd /home/runner/finalprojectbe && git pull && npm install && pm2 restart all"
 
         env:
           REPLIT_SSH_KEY: ${{ secrets.REPLIT_SSH_KEY }}
