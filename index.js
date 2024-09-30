@@ -1,8 +1,8 @@
-require('dotenv').config();
-const express = require('express');
+require("dotenv").config();
+const express = require("express");
 const app = express();
 const port = 3000;
-const { handleError } = require('./helper/errorHandler'); // Update to 'helper'
+const { handleError } = require("./helpers/errorHandler"); // Update to 'helper'
 
 app.use(express.json());
 

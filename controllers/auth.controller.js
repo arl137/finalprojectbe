@@ -2,7 +2,7 @@ const { hash, genSalt, compareSync } = require("bcrypt");
 const { Users } = require("../models");
 const { Op } = require("sequelize");
 const { sign } = require("jsonwebtoken");
-const { ErrorHandler } = require("../helper/errorHandler"); // Import custom error handler
+const { ErrorHandler } = require("../helpers/errorHandler"); // Import custom error handler
 const Unauthenticationerror = require("../errors/UnauthenticationError");
 
 exports.register = async (req, res, next) => {

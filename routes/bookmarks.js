@@ -3,7 +3,7 @@ const {
   deleteBookmark,
   myBookmarks,
 } = require("../controllers/bookmarks.controller");
-const getMovieIdUser = require("../helper/getmovieuser");
+const getMovieIdUser = require("../helpers/getmovieuser");
 
 const router = require("express").Router();
 
