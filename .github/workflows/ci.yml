@@ -23,9 +23,7 @@ jobs:
 
       - name: Test SSH connection with telnet
         run: |
-          apt-get install telnet -y
           telnet finalprojectbe.replit.app 22
-
 
       # Run the SSH command with more verbose output
       - name: Deploy to Replit
