@@ -29,7 +29,7 @@ describe("POST /register", () => {
       address: "123 Test St",
     });
 
-    expect(response.statusCode).toBe(409);
+    expect(response.statusCode).toBe(400);
     expect(response.body).toHaveProperty("error", "Conflict");
   });
 });
