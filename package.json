@@ -1,10 +1,10 @@
 {
   "name": "as_2",
   "version": "1.0.0",
-  "description": "Final Project",
+  "description": "Final Project BE",
   "main": "index.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest --forceExit"
   },
   "author": "fakhrul mubarak",
   "license": "ISC",
