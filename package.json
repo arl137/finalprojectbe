@@ -6,7 +6,7 @@
   "scripts": {
     "test": "jest"
   },
-  "author": "rudito prayogo",
+  "author": "fakhrul mubarak",
   "license": "ISC",
   "dependencies": {
     "bcrypt": "^5.1.1",
